@@ -337,10 +337,14 @@ function initPath(root) {
 let _lr = null;
 function letterReading(root) {
   if (_lr) { _lr.disconnect(); _lr = null; document.body.classList.remove('ms-reading'); }
-  const el = root.querySelector('.why-letter, .lyr-sheet');
-  if (!el || !('IntersectionObserver' in window)) return;
-  _lr = new IntersectionObserver(([e]) => document.body.classList.toggle('ms-reading', e.isIntersecting), { threshold: 0.05 });
-  _lr.observe(el);
+  const els = root.querySelectorAll('.why-letter, .lyr-sheet, .author-doc, .ms-envelope .ms-letter');
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  const seen = new Set();
+  _lr = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) seen.add(e.target); else seen.delete(e.target); });
+    document.body.classList.toggle('ms-reading', seen.size > 0);
+  }, { threshold: 0.05 });
+  els.forEach((el) => _lr.observe(el));
 }
 
 // ---------- page controllers ----------

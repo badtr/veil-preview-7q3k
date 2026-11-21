@@ -4432,3 +4432,117 @@ body:has(> .wel:not(.is-leaving)) > :not(.wel):not(.pb-wg):not(script){visibilit
   .num-method>summary{min-height:44px;padding-block:.6rem;box-sizing:border-box}
 }
 @media (max-width:900px),(hover:none) and (pointer:coarse){.wg-full-link{display:inline-block;padding-block:12px;margin-block:-12px}}
+
+/* ===== v57: Why I write, the second leaf — sealed letter typography ===== */
+.author-doc .ms-title{
+  font-family:"Pinyon Script","Fondamento",cursive!important;
+  font-weight:400!important;
+  font-style:normal!important;
+  letter-spacing:.03em;
+  font-size:clamp(3.1rem,2.2rem + 3.2vw,4.6rem)!important;
+  line-height:1.05;
+  color:#6c060e!important;
+}
+.author-doc .ms-kicker{letter-spacing:.22em!important}
+.author-doc .au-body{
+  max-width:36.5em;margin:0 auto;text-align:left;
+  font-feature-settings:"kern" 1,"liga" 1,"dlig" 0,"hlig" 0,"hist" 0!important;
+  font-variant-ligatures:common-ligatures;
+}
+.author-doc .au-body .ms-st{
+  margin:0 auto 0!important;
+  max-width:none!important;
+  font-size:clamp(1.125rem,.7rem + .85vw,1.28rem)!important;
+  line-height:1.82!important;
+  font-weight:450!important;
+  color:#1a0c05!important;
+  font-feature-settings:"kern" 1,"liga" 1,"dlig" 0,"hlig" 0,"hist" 0!important;
+}
+.author-doc .au-body .ms-l{
+  display:block;
+  padding-left:1.15em;
+  text-indent:-1.15em;
+  font-family:var(--f-read),"Garamond","EB Garamond",Georgia,serif!important;
+  font-size:inherit!important;
+  line-height:inherit!important;
+  font-weight:450!important;
+  color:#1a0c05!important;
+  letter-spacing:.008em!important;
+  font-feature-settings:"kern" 1,"liga" 1,"dlig" 0,"hlig" 0,"hist" 0!important;
+}
+.author-doc .au-orn{
+  display:flex;align-items:center;justify-content:center;gap:.65rem;
+  margin:.95em auto 1.15em;max-width:8.4rem;pointer-events:none;user-select:none;
+}
+.author-doc .au-orn::before,.author-doc .au-orn::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,#7a3a14 8%,#6c060e 50%,#7a3a14 92%,transparent);
+  opacity:.85;
+}
+.author-doc .au-orn span{display:block;line-height:1;color:#6c060e}
+.author-doc .au-orn span::before{content:"❦";font-size:.95rem;letter-spacing:0;opacity:1}
+.author-doc .au-salute{
+  font-style:italic!important;
+  font-weight:450!important;
+  padding-left:0!important;
+  text-indent:0!important;
+  color:#241208!important;
+}
+.author-doc .au-drop{
+  font-family:var(--f-init),"Unifraktur Cook","Unifraktur",serif!important;
+  font-style:normal!important;
+  font-weight:700!important;
+  float:left;
+  font-size:3.05em;
+  line-height:.78;
+  padding:0 .05em 0 0;
+  margin:.08em .06em 0 0;
+  color:#6c060e!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  text-shadow:0 1px 0 rgba(255,230,180,.35)!important;
+}
+.author-doc .au-body .ms-l.au-close{
+  font-style:normal!important;
+  font-weight:650!important;
+  letter-spacing:.02em!important;
+  color:#120704!important;
+}
+.author-doc .au-st-close .ms-l.au-close:first-of-type{margin-top:.15em}
+.author-doc .au-sign{margin-top:.2rem;padding-right:.2em}
+@media (max-width:699px){
+  .author-doc .ms-title{font-size:clamp(2.55rem,12vw,3.2rem)!important}
+  .author-doc .ms-kicker{letter-spacing:.14em!important;font-size:.7rem!important}
+  .author-doc .au-body{max-width:none}
+  .author-doc .au-body .ms-st{font-size:1.02rem!important;line-height:1.78!important}
+  .author-doc .au-body .ms-l{padding-left:.7em;text-indent:-.7em;letter-spacing:0!important}
+  .author-doc .au-salute{padding-left:0!important;text-indent:0!important}
+  .author-doc .au-drop{font-size:2.45em;line-height:.76;margin:.06em .04em 0 0;padding:0 .03em 0 0}
+  .author-doc .au-orn{max-width:6.4rem;margin:.75em auto 1em;gap:.45rem}
+  .author-doc .au-orn span::before{font-size:.85rem}
+  .author-doc{padding-left:.9rem!important;padding-right:.9rem!important}
+}
+@media (max-width:900px),(hover:none) and (pointer:coarse){
+  .author-doc .au-body .ms-st{font-size:1.04rem!important;line-height:1.8!important}
+  .author-doc .au-drop{font-size:2.55em}
+  .author-doc .ms-kicker{letter-spacing:.14em!important}
+}
+
+/* v57b: never let the fixed M.A. mark sit on letter text (all viewports) */
+body.ms-reading .ma-mark,
+body:has(.ms-envelope.is-open) .ma-mark{
+  opacity:0!important;
+  pointer-events:none;
+}
+/* the left blood drip on this long letter reads as a stray capital I in the margin */
+.author-doc .ms-drip.drip-l{display:none}
+.author-doc .au-keep{white-space:nowrap}
+.author-doc .au-drop{margin:.08em -.04em 0 0;padding:0}
+@media (max-width:699px){
+  .author-doc .au-drop{font-size:2.15em;line-height:.76;margin:.04em -.06em 0 0;padding:0}
+  .author-doc .au-salute{letter-spacing:0!important}
+}
+@media (max-width:900px),(hover:none) and (pointer:coarse){
+  .author-doc .au-drop{font-size:2.2em;margin:.04em -.06em 0 0}
+}
